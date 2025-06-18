@@ -1,0 +1,31 @@
+# 项目配置文件
+
+# 数据配置
+data:
+  style_source_type: "upload"  # 风格图片来源类型: example, kaggle, upload
+  style_source_path: "/kaggle/input/chinese-style-picture/古画/512x512/style"  # 风格图片源路径
+  input_image_path: "/kaggle/input/chinese-style-picture/古画/512x512/input/input1.jpg"  # 输入图片路径
+  style_images_dir: "data/style_images"  # 风格图片目录
+  input_image_dir: "data/input_image"  # 输入图片目录
+  output_images_dir: "outputs"  # 输出图片目录
+
+# 模型配置
+model:
+  base_model: "runwayml/stable-diffusion-v1-5"  # 基础模型
+  output_dir: "models/trained_model"  # 模型输出目录
+  style_name: "chinese_painting"  # 风格名称
+
+# 训练配置
+train:
+  num_epochs: 4  # 训练轮次
+  learning_rate: 1e-4  # 学习率
+  batch_size: 1  # 批次大小
+
+# 推理配置
+inference:
+  prompt: "Chinese traditional painting style, high quality, detailed"  # 提示词
+  strength: 0.7  # 风格强度
+  guidance_scale: 8.0  # 引导系数
+  num_inference_steps: 50  # 推理步数
+  test_strengths: [0.4, 0.6, 0.8]  # 测试强度列表
+    
